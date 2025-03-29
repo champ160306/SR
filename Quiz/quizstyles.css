@@ -1,0 +1,172 @@
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  margin: 0px;
+  text-align: center;
+  padding: 0px;
+  backdrop-filter: blur(2px);
+  background-image: url('https://img.freepik.com/free-vector/christmas-snowy-background_1048-9078.jpg?t=st=1742751724~exp=1742755324~hmac=9cede11cc75c5b5852465d1311e7fa616597031c661c8818500b7f28c127d45b&w=1060');
+  /* background-color: var(--primary-color); */
+}
+/* Root, dark theme used for dark theme */
+:root{
+  --primary-color: #000000;
+  --secondary-color: #212121;
+  --tertiary-color: #f0f0f0;
+  --quaternary-color: #515151;
+}
+/* .dark-theme{
+  --primary-color: #000106;
+  --secondary-color: #fff;
+  --tertiary-color: #515151;
+  --quaternary-color: #f0f0f0 ;
+} */
+#icon {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  width:30px;
+  cursor: pointer;
+  display: inline;
+  padding: 0px 4px;
+}
+nav{
+  position: sticky;
+  top:0;
+}
+.hidden {
+  display: none;
+}
+.maincontainer {
+  margin: 50px 80px;
+  position: relative;
+  padding:7vh 10vw ;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--quaternary-color);
+  border-radius: 12px;
+  box-shadow: -10px 13px 16px rgba(0, 0, 0, 0.2);
+}
+.chapters{
+  display: flex;
+  grid-row:auto;
+}
+.chapter-card {
+  color: var(--secondary-color);
+  background-color: var(--tertiary-color);
+  border: 1px solid #ccc;
+  padding: 30px;
+  margin: 10px;
+  cursor: pointer;
+  /* display:block; */
+  /* width: 200px;
+  height: 100px; */
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.chapter-card:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+/* Options cha vertical column */
+.options{
+display: grid;
+}
+.options button {
+
+  border-radius: 5px;
+  margin: 5px;
+  padding: 7%;
+  border: none;
+  background-color: #ffcc00;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.options button:hover {
+  background-color: #ffaa00;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: none;
+}
+
+.correct {
+  background-color: #28a745 !important; /* Green */
+  color: white;
+}
+
+.wrong {
+  background-color: #dc3545 !important; /* Red */
+  color: white;
+}
+
+#next-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#next-btn:hover:enabled {
+  background-color: #0056b3;
+}
+
+/* Manual Formatting starts here */
+#skip-btn, #end-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #ffc107; /* Yellow */
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#skip-btn:hover, #end-btn:hover {
+  background-color: #e0a800;
+}
+
+.retry{
+  padding: 10% 20%;
+  margin-top: 10%;
+  border: solid #a7a7a7 2px;
+  border-radius: 10px;
+  background-color:#ffffff;
+  transition:  0.1s ease-out;
+}
+
+.retry:hover{
+  background-color:#ebebeb ;
+    margin-top: 10%;
+    border: solid black 2px;
+    border-radius: 10px;
+
+}
+
+.progress {
+  display: flex;
+  justify-content: center; /* Aligns items to the center */
+  gap: 1vw; /* Adjust spacing between images */
+  flex-wrap: wrap; /* Ensures responsiveness */
+}
+
+.planets{
+  justify-content: center;
+}
+
+.planets img {
+  width: 6vw; /* Adjust image size */
+  height: auto;
+}

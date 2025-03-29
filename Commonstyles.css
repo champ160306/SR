@@ -1,0 +1,143 @@
+/* Root, dark theme used for dark theme */
+/* :root{
+  --primary-color: #ffffff;
+  --secondary-color: #000000;
+}
+.dark-theme{
+  --primary-color: #000000;
+  --secondary-color: #ffffff;
+} */
+
+/* Navigation Bar */
+nav {
+  position: sticky;
+  top: 0;
+  background: rgba(0, 0, 0, 0.786);
+  width: 100%;
+  padding: 10px 0;
+  z-index: 12;
+  backdrop-filter: blur(5px);
+}
+
+nav .menu {
+  max-width: 1350px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.menu ul{
+  flex: 1;
+  justify-content: right;
+}
+.menu .logo a {
+  background-clip: text;
+  text-decoration: none;
+  font-size: 35px;
+  font-weight: 600;
+}
+
+.menu ul {
+  display: flex;
+  align-items: center;
+}
+
+.menu ul li {
+  list-style: none;
+  margin-left: 20px;
+}
+
+.menu ul li:first-child {
+  margin-left: 0px;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.menu ul li a:hover {
+  background: black;
+  color:wheat;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  color: black;
+  cursor: pointer;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .menu ul {
+      display: none;
+      flex-direction: column;
+      background: var(--primary-color);
+      position: absolute;
+      top: 60px;
+      right: 0;
+      width: 100%;
+      padding: 10px 0;
+  }
+  .menu ul li{
+      min-width: 30%;
+      border-radius: 8px;
+      margin-bottom: 3px;
+      padding: 1.5px 2px;
+      border: 2px solid var(--secondary-color);
+      text-align: center;
+  }
+  .menu ul.show {
+      display: flex;
+  }
+
+  .hamburger {
+      display: block;
+  }
+
+  .center .title {
+      font-size: 40px;
+  }
+
+  .center .sub_title {
+      font-size: 24px;
+  }
+
+  .btns button {
+      width: 140px;
+      height: 45px;
+      font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .center .title {
+      font-size: 32px;
+  }
+
+  .center .sub_title {
+      font-size: 24px;
+  }
+
+  .btns button {
+      width: 120px;
+      height: 40px;
+      font-size: 14px;
+  }
+
+  nav .menu {
+      padding: 0 10px;
+  }
+
+  .menu .logo a {
+      font-size: 28px;
+  }
+}

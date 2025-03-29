@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StellarRoot-Quiz</title>
+    <link rel="stylesheet" href="quizstyles.css" />
+    <link rel="stylesheet" href="../Commonstyles.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="menu">
+        <div class="logo">
+          <a href="../index.html">LOGO</a>
+        </div>
+        <div class="hamburger"> 
+          <i class="fas fa-bars"></i>
+        </div>
+        <ul>
+          <li><a href="../Articles/article.html">Articles</a></li>
+          <li><a href="../News/news.html">News</a></li>
+          <li><a href="../Quiz/quiz.html">Quiz</a></li>
+          <li><a href="../About Us/about.html">About Us</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Actual Quiz section -->
+    <div class="maincontainer">
+        <div class="progress">
+            <div class="planets" id="mercury"><img src="mercury.png" alt="mercury"></div>
+            <div class="planets" id="venus"><img src="venus.png" alt="venus"></div>
+            <div class="planets" id="earth"><img src="earth.png" alt="earth"></div>
+            <div class="planets" id="mars"><img src="mars2.png" alt="mars"></div>
+            <div class="planets" id="jupiter"><img src="jupiter.png" alt="jupiter"></div>
+            <div class="planets" id="saturn"><img src="saturn.png" alt="saturn"></div>
+            <div class="planets" id="uranus"><img src="uranus.png" alt="uranus"></div>
+            <div class="planets" id="neptune"><img src="neptune.png" alt="neptune"></div>
+            <div class="planets" id="pluto"><img src="pluto2.png" alt="pluto"></div>
+        </div>
+      <!-- For Selection of Chapter -->
+      <div id="chapters">
+        <h2>Select a Chapter for the Quiz</h2>
+        <div class="chapter-card" onclick="startQuiz('chapter1')">
+          Chapter 1
+        </div>
+        <div class="chapter-card" onclick="startQuiz('chapter2')">
+          Chapter 2
+        </div>
+        <div class="chapter-card" onclick="startQuiz('chapter3')">
+          Chapter 3
+        </div>
+        <div class="chapter-card" onclick="startQuiz('chapter4')">
+          Chapter 4
+        </div>
+      </div>
+
+      <!-- For Quiz Container -->
+      <div id="quiz-section" class="hidden">
+        <h2 id="quiz-title">Space Quiz</h2>
+        <p id="question">Question will appear here</p>
+        <div class="options">
+          <button class="option" onclick="selectOption(this, 0)">
+            Option 1
+          </button>
+          <button class="option" onclick="selectOption(this, 1)">
+            Option 2
+          </button>
+          <button class="option" onclick="selectOption(this, 2)">
+            Option 3
+          </button>
+          <button class="option" onclick="selectOption(this, 3)">
+            Option 4
+          </button>
+        </div>
+        <button id="next-btn" onclick="nextQuestion()" disabled>Next</button>
+        <button id="skip-btn" onclick="skipQuestion()">Skip</button>
+        <button id="end-btn" onclick="endQuiz()">End Quiz</button>
+      </div>
+
+      <!-- Score Section -->
+      <div id="score-section" class="hidden">
+        <h2>Your Score</h2>
+        <p id="score">0/0</p>
+        <button onclick="retryQuiz()" class="retry">Retry</button>
+      </div>
+    </div>
+
+    <script>
+      const hamburger = document.querySelector(".hamburger");
+      const menu = document.querySelector(".menu ul");
+      hamburger.addEventListener("click", () => {
+        menu.classList.toggle("show");
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <script src="quiz_script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StellarRoot</title>
+    <link rel="stylesheet" href="Commonstyles.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Nav bar -->
+    <nav>
+        <div class="menu">
+            <div class="logo">
+                <a href="index.html">LOGO</a>
+            </div>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul>
+                <li><a href="Articles/article.html">Articles</a></li>
+                <li><a href="News/news.html">News</a></li>
+                <li><a href="Quiz/2.html">Quiz</a></li>
+                <li><a href="About Us/about.html">About Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="mainpage1">
+        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.76/build/spline-viewer.js"></script>
+
+        <spline-viewer loading-anim-type="none"
+            url="https://prod.spline.design/M0ufMXbd5wXbxqIJ/scene.splinecode"></spline-viewer>
+        <div class="text">
+            <h1>Explore</h1>
+            <h1>the</h1>
+            <h1>Cosmos</h1>
+        </div>
+    </div>
+
+    <div class="mainpage2">
+        <div class="left">
+            <h2>Stay Updated with Space News</h2>
+            <br>
+            <p>From breathtaking cosmic discoveries to groundbreaking space missions, space exploration never stops.</p>
+            <p>Learn about the latest advancements in rocket technology, planetary research, and interstellar phenomena.
+            </p>
+            <p>Stay ahead of the curve with real-time updates on space events, scientific breakthroughs, and astronaut
+                missions.</p>
+            <a href="News/news.html">
+                <button type="button" class="btn">
+                    <strong>NEWS</strong>
+                    <div id="container-stars">
+                        <div id="stars"></div>
+                    </div>
+
+                    <div id="glow">
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                    </div>
+                </button>
+            </a>
+        </div>
+        <div class="right">
+            <img src="simple space news image.png" alt="Space News Image">
+        </div>
+    </div>
+    <div class="mainpage3">
+        <div class="left">
+            <img src="simple space-themed quiz icon.png" alt="Space Exploration Image">
+        </div>
+        <div class="right">
+            <h2>Test Your Space Knowledge with Exciting Quizzes! 🚀</h2><br>
+            <p>Think you know everything about space? Challenge yourself with fun and interactive quizzes covering
+                astronomy, space missions, planets, black holes, and more! </p>
+            <p>Compete with friends, learn fascinating facts, and become a true space expert. 🌌✨</p>
+            <p>Are you ready to prove your cosmic knowledge? Take a quiz now! 🔭🚀</p>
+            <a href="Quiz/2.html">
+                <button type="button" class="btn">
+                    <strong>START</strong>
+                    <div id="container-stars">
+                        <div id="stars"></div>
+                    </div>
+                    <div id="glow">
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                    </div>
+                </button>
+            </a>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <h2>Contact Us</h2>
+                <p>Email: info@yourwebsite.com</p>
+                <p>Phone: +91-9168281183</p>
+                <p>Address: Pune</p>
+            </div>
+            <div class="footer-right">
+                <div class="loader">
+                    <div class="blackhole">
+                        <div class="blackhole-circle"></div>
+                        <div class="blackhole-disc"></div>
+                    </div>
+
+                    <div class="curve">
+                        <svg viewBox="0 0 500 500">
+                            <path id="loading" d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97">
+                            </path>
+                            <text width="500">
+                                <textPath xlink:href="#loading">
+                                    STELLARROOT...
+                                </textPath>
+                            </text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+    // Hamburger menu toggle for responsive navigation
+        const hamburger = document.querySelector('.hamburger');
+        const menu = document.querySelector('.menu ul');
+        hamburger.addEventListener('click', () => {
+            menu.classList.toggle('show');
+        });
+</script>
+</body>
+
+</html>

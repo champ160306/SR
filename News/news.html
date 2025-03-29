@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Space News</title>
+    <link rel="stylesheet" href="../Commonstyles.css" />
+    <link rel="stylesheet" href="news.css" />
+  </head>
+  <body>
+      <!-- Nav bar -->
+    <nav>
+      <div class="menu">
+          <div class="logo">
+              <a href="../index.html">LOGO</a>
+          </div>
+          <div class="hamburger">
+              <i class="fas fa-bars"></i>
+          </div>
+          <ul>
+              <li><a href="../Articles/article.html">Articles</a></li>
+              <li><a href="../News/news.html">News</a></li>
+              <li><a href="../Quiz/quiz.html">Quiz</a></li>
+              <li><a href="../About Us/about.html">About Us</a></li>
+          </ul>
+      </div>
+  </nav>
+    <h1>Latest Space News</h1>
+
+    <div class="sort-container">
+      <label for="category">Sort By:</label>
+      <div class="select-wrapper">
+        <select id="category" onchange="filterNews()">
+          <option value="all">All</option>
+          <option value="SpaceX">SpaceX</option>
+          <option value="BlueOrigin">Blue Origin</option>
+          <option value="Astronomy">Astronomy</option>
+        </select>
+      </div>
+    </div>
+    
+
+    <div class="news-container" id="news"></div>
+
+    <!-- Modal for news details -->
+    <div id="popup-modal" class="modal">
+      <div class="modal-content">
+        <button class="close-btn" onclick="closeModal()">&times;</button>
+        <img id="modal-img" src="" alt="News Image" />
+        <h2 id="modal-title"></h2>
+        <p id="modal-time"></p>
+        <div id="modal-description"></div>
+      </div>
+    </div>
+
+    <script>
+      let allNewsData = []; // Store all news items globally
+
+      async function fetchNews() {
+        try {
+          const response = await fetch("news.json");
+          if (!response.ok) throw new Error("Failed to fetch news");
+
+          allNewsData = await response.json();
+          renderNews(allNewsData);
+        } catch (error) {
+          console.error("Error fetching news:", error);
+          document.getElementById("news").innerHTML =
+            "<p>Failed to load news. Please try again later.</p>";
+        }
+      }
+
+      function renderNews(newsData) {
+        const newsContainer = document.getElementById("news");
+        newsContainer.innerHTML = "";
+
+        newsData.forEach((newsItem, index) => {
+          let { headline, time, photo, description } = newsItem;
+          photo = photo && /^https?:\/\//.test(photo) ? photo : "fallback.jpg";
+
+          const newsHTML = `
+            <div class="news-card">
+              <img src="${photo}" alt="${headline}" loading="lazy"
+                onerror="this.onerror=null; this.src='fallback.jpg';">
+              <div class="news-content">
+                <h2>${headline}</h2>
+                <p class="news-time">${time}</p>
+                <button class="toggle-btn" onclick="openModal(${index})">Read More</button>
+              </div>
+            </div>
+          `;
+
+          newsContainer.innerHTML += newsHTML;
+        });
+      }
+
+      function filterNews() {
+        const selectedCategory = document.getElementById("category").value;
+        if (selectedCategory === "all") {
+          renderNews(allNewsData);
+        } else {
+          const filteredNews = allNewsData.filter(
+            (news) => news.category === selectedCategory
+          );
+          renderNews(filteredNews);
+        }
+      }
+
+      function openModal(index) {
+        const modal = document.getElementById("popup-modal");
+        const newsData = allNewsData[index];
+
+        document.getElementById("modal-title").textContent = newsData.headline;
+        document.getElementById("modal-time").textContent = newsData.time;
+        document.getElementById("modal-img").src = newsData.photo;
+        document.getElementById("modal-description").textContent =
+          newsData.description;
+
+        modal.style.display = "flex";
+        handleModalScroll();
+      }
+
+      function closeModal() {
+        document.getElementById("popup-modal").style.display = "none";
+      }
+
+      document.getElementById("popup-modal").addEventListener("click", function (event) {
+        if (event.target === this) closeModal();
+      });
+
+      function handleModalScroll() {
+        const modalContent = document.querySelector(".modal-content");
+        const modalImg = document.getElementById("modal-img");
+
+        modalContent.addEventListener("scroll", () => {
+          modalImg.style.opacity = modalContent.scrollTop > 0 ? "0" : "1";
+        });
+      }
+
+      fetchNews();
+    </script>
+  </body>
+</html>
